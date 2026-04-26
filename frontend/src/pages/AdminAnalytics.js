@@ -13,7 +13,8 @@ import {
   Legend,
   ArcElement
 } from 'chart.js';
-import { Bar, Pie, Doughnut } from 'react-chartjs-2';
+// eslint-disable-next-line no-unused-vars
+import { Pie, Bar, Line } from 'react-chartjs-2';
 
 // Register ChartJS components
 ChartJS.register(

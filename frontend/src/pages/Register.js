@@ -4,6 +4,7 @@ import api from '../services/api';
 import toast from 'react-hot-toast';
 
 const Register = () => {
+  // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [photoPreview, setPhotoPreview] = useState(null);
