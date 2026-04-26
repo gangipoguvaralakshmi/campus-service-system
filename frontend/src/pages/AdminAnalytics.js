@@ -13,8 +13,7 @@ import {
   Legend,
   ArcElement
 } from 'chart.js';
-// eslint-disable-next-line no-unused-vars
-import { Pie, Bar, Line } from 'react-chartjs-2';
+import { Bar, Doughnut } from 'react-chartjs-2';
 
 // Register ChartJS components
 ChartJS.register(
@@ -116,10 +115,10 @@ const AdminAnalytics = () => {
         {
           data: stats.byPriority.map(item => item.count || 0),
           backgroundColor: [
-            '#c44536', // high - red
-            '#f39c12', // medium - orange
-            '#27ae60', // low - green
-            '#3498db', // urgent - blue
+            '#c44536',
+            '#f39c12',
+            '#27ae60',
+            '#3498db',
           ],
           borderWidth: 1,
         },
