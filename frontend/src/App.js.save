@@ -1,0 +1,73 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import './App.css';
+
+// Pages
+import LandingPage from './pages/LandingPage';
+import Dashboard from './pages/Dashboard';
+import NewComplaint from './pages/NewComplaint';
+import ComplaintStatus from './pages/ComplaintStatus';
+import AdminAnalytics from './pages/AdminAnalytics';
+import Register from './pages/Register';
+
+// Context
+import { AuthProvider } from './context/AuthContext';
+import PrivateRoute from './components/common/PrivateRoute';
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <Toaster 
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: '#363636',
+                color: '#fff',
+              },
+              success: {
+                duration: 3000,
+                icon: '✅',
+              },
+              error: {
+                duration: 4000,
+                icon: '❌',
+              },
+            }}
+          />
+          <Routes>
+^X
+            {/* Public Routes */}
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/register" element={<Register />} />
+            
+            {/* Protected Routes */}
+            <Route path="/dashboard" element={<PrivateRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+            
+            <Route path="/new-complaint" element={<PrivateRoute />}>
+              <Route path="/new-complaint" element={<NewComplaint />} />
+            </Route>
+            
+            <Route path="/complaint-status" element={<PrivateRoute />}>
+              <Route path="/complaint-status" element={<ComplaintStatus />} />
+            </Route>
+            
+            <Route path="/admin-analytics" element={<PrivateRoute role="admin" />}>
+              <Route path="/admin-analytics" element={<AdminAnalytics />} />
+            </Route>
+            
+            {/* Fallback Route */}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
+  );
+}
+
+export default App;

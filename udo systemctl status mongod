@@ -1,0 +1,11 @@
+[0;1;32m●[0m mongod.service - MongoDB Database Server
+     Loaded: loaded (/lib/systemd/system/mongod.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Sun 2026-02-22 22:53:19 IST; 7min ago
+       Docs: https://docs.mongodb.org/manual
+   Main PID: 10671 (mongod)
+     Memory: 253.9M
+     CGroup: /system.slice/mongod.service
+             └─10671 /usr/bin/mongod --config /etc/mongod.conf
+
+Feb 22 22:53:19 rgukt systemd[1]: Started MongoDB Database Server.
+Feb 22 22:53:21 rgukt mongod[10671]: {"t":{"$date":"2026-02-22T17:23:21.989Z"},"s":"I",  "c":"CONTROL",  "id":7484500, "ctx":"main","msg":"Environment variable MONGODB_CONFIG_OVERRIDE_NOFORK == 1, overriding \"processManagement.fork\" to false"}
