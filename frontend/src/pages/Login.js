@@ -385,7 +385,7 @@ const handleSubmit = async (e) => {
       console.log('Redirecting to student dashboard');
       window.location.href = '/dashboard';
     }
-  } catch (err) {
+  }catch (err) {
     const message = err.response?.data?.message 
       || err.response?.data?.error 
       || 'Invalid email or password. Please try again.';
@@ -398,7 +398,7 @@ const handleSubmit = async (e) => {
  
   const handleGoogle = () => {
     setGLoading(true);
-    window.location.href = 'http://localhost:5000/api/auth/google';
+   window.location.href = 'https://campus-service-system.onrender.com/api/auth/google';
   };
  
   return (
