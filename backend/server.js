@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://campus-service-system-hmlm3apoa.vercel.app']
+  origin: ['http://localhost:3000', 'https://campus-service-system-hmlm3apoa.vercel.app'],
   credentials: true
 }));
 app.use(express.json());
