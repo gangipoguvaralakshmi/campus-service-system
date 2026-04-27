@@ -19,7 +19,7 @@ router.get('/callback',
     next();
   },
   passport.authenticate('google', { 
-    failureRedirect: 'http://localhost:3000/login?error=Authentication+failed',
+    failureRedirect: 'https://campus-service-system.vercel.app/login?error=Authentication+failed',
     session: false 
   }),
   (req, res) => {
@@ -31,12 +31,12 @@ router.get('/callback',
       
       if (!user) {
         console.error('No user data received from Google');
-        return res.redirect('http://localhost:3000/login?error=No+user+data+received');
+        return res.redirect('https://campus-service-system.vercel.app/login?error=No+user+data+received');
       }
       
       if (user.needsRegistration) {
         console.log('New user needs registration:', user.email);
-        return res.redirect(`http://localhost:3000/login?message=This+Google+account+is+not+registered.+Please+sign+up+first.&email=${encodeURIComponent(user.email)}`);
+        return res.redirect(`https://campus-service-system.vercel.app/login?message=This+Google+account+is+not+registered.+Please+sign+up+first.&email=${encodeURIComponent(user.email)}`);
       }
       
       console.log('Existing user found:', user.email, 'Role:', user.role);
@@ -69,11 +69,11 @@ router.get('/callback',
       console.log(`Google auth completed in ${totalTime}ms`);
       
       // Redirect to frontend success page
-      res.redirect(`http://localhost:3000/auth/success?token=${token}&user=${userData}&redirect=${redirectPath}`);
+      res.redirect(`https://campus-service-system.vercel.app/auth/success?token=${token}&user=${userData}&redirect=${redirectPath}`);
       
     } catch (error) {
       console.error('Error in Google callback:', error);
-      res.redirect('http://localhost:3000/login?error=Server+error+during+authentication');
+      res.redirect('https://campus-service-system.vercel.app/login?error=Server+error+during+authentication');
     }
   }
 );
@@ -81,7 +81,7 @@ router.get('/callback',
 // Error handler for Google OAuth failures
 router.get('/error', (req, res) => {
   console.error('Google OAuth error');
-  res.redirect('http://localhost:3000/login?error=Google+authentication+failed');
+  res.redirect('https://campus-service-system.vercel.app/login?error=Google+authentication+failed');
 });
 
 module.exports = router;
