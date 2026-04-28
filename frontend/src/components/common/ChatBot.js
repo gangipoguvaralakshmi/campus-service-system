@@ -33,7 +33,7 @@ const ChatBot = () => {
         .filter((m, i) => !(i === 0 && m.role === 'assistant'))
         .map((m) => ({ role: m.role, content: m.content }));
 
-      const response = await fetch('/api/chat', {
+      const response = await fetch('https://campus-service-system.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: apiMessages }),
